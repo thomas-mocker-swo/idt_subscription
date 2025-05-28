@@ -45,8 +45,8 @@ jobs:
         id: setplan
         run: |
           PLAN_NAME="tfplan-${GITHUB_RUN_ID}"
-          terraform plan -out=${PLAN_NAME}.tgz
-          terraform show -no-color ${PLAN_NAME}.tgz
+          terraform plan -out=${PLAN_NAME}.binary
+          terraform show -no-color ${PLAN_NAME}.binary
           echo "plan_file=${PLAN_NAME}" >> $GITHUB_OUTPUT
 
       - name: Upload Artifact
@@ -54,7 +54,7 @@ jobs:
         with:
           name: terraform-plan
           path: |
-            ${{ steps.setplan.outputs.plan_file }}.tgz
+            ${{ steps.setplan.outputs.plan_file }}.binary
 
   wait-for-approval:
     name: Wait for Manual Approval
@@ -89,8 +89,8 @@ jobs:
 
       - name: Terraform Apply
         run: |
-          terraform apply "tfplan-${GITHUB_RUN_ID}.tgz"
-          terraform show -no-color ${PLAN_NAME}.tgz
+          terraform apply "tfplan-${GITHUB_RUN_ID}.binary"
+          terraform show -no-color ${PLAN_NAME}.binary
 
       - name: Cleanup Plan Files
-        run: rm -f "tfplan-${GITHUB_RUN_ID}.tgz"
+        run: rm -f "tfplan-${GITHUB_RUN_ID}.binary"
