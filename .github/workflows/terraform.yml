@@ -8,7 +8,6 @@ on:
     - main
     types:
     - closed
-  workflow_dispatch:
   
 # Special permissions required for OIDC authentication
 permissions:
