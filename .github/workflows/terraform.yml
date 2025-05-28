@@ -90,7 +90,6 @@ jobs:
       - name: Terraform Apply
         run: |
           terraform apply "tfplan-${GITHUB_RUN_ID}.binary"
-          terraform show -no-color "tfplan-${GITHUB_RUN_ID}.binary"
 
       - name: Cleanup Plan Files
         run: rm -f "tfplan-${GITHUB_RUN_ID}.binary"
