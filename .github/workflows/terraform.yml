@@ -26,7 +26,7 @@ jobs:
   terraform-plan:
     name: Terraform Plan
     runs-on: ubuntu-latest
-    environment: production
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true)
     outputs:
       plan_file: ${{ steps.setplan.outputs.plan_file }}
     steps:
@@ -46,7 +46,7 @@ jobs:
         run: |
           PLAN_NAME="tfplan-${GITHUB_RUN_ID}"
           terraform plan -out=${PLAN_NAME}.tgz
-          terraform show -no-color ${PLAN_NAME}.binary > ${PLAN_NAME}.txt
+          terraform show -no-color ${PLAN_NAME}.tgz > ${PLAN_NAME}.txt
           echo "plan_file=${PLAN_NAME}" >> $GITHUB_OUTPUT
 
       - name: Upload Artifact
