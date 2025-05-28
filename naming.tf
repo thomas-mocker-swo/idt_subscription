@@ -3,5 +3,5 @@ module "naming" {
   location     = var.location_short
   project      = "lz"
   environment  = "prd"
-  applications = ["idt"]
+  applications = ["idt", "tmocker"]
 }
