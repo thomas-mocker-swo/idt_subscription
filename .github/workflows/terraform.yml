@@ -69,7 +69,6 @@ jobs:
   terraform-apply:
     name: Terraform Apply
     runs-on: ubuntu-latest
-    environment: production
     needs: wait-for-approval
     steps:
       - name: Checkout
