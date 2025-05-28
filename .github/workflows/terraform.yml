@@ -46,7 +46,7 @@ jobs:
         run: |
           PLAN_NAME="tfplan-${GITHUB_RUN_ID}"
           terraform plan -out=${PLAN_NAME}.tgz
-          terraform show -no-color ${PLAN_NAME}.tgz > ${PLAN_NAME}.txt
+          terraform show -no-color ${PLAN_NAME}.tgz
           echo "plan_file=${PLAN_NAME}" >> $GITHUB_OUTPUT
 
       - name: Upload Artifact
@@ -88,7 +88,9 @@ jobs:
         run: terraform init -backend-config="backend.conf"
 
       - name: Terraform Apply
-        run: terraform apply "tfplan-${GITHUB_RUN_ID}.tgz"
+        run: |
+          terraform apply "tfplan-${GITHUB_RUN_ID}.tgz"
+          terraform show -no-color ${PLAN_NAME}.tgz
 
       - name: Cleanup Plan Files
         run: rm -f "tfplan-${GITHUB_RUN_ID}.tgz"
