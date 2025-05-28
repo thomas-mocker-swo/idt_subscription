@@ -88,7 +88,7 @@ jobs:
         run: terraform init -backend-config="backend.conf"
 
       - name: Terraform Apply
-        run: terraform apply "tfplan-${GITHUB_RUN_ID}.tgz" -auto-approve
+        run: terraform apply "tfplan-${GITHUB_RUN_ID}.tgz"
 
       - name: Cleanup Plan Files
         run: rm -f "tfplan-${GITHUB_RUN_ID}.tgz"
