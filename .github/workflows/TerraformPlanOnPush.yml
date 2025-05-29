@@ -23,7 +23,7 @@ jobs:
   terraform-plan:
     name: Terraform Plan
     runs-on: ubuntu-latest
-    environment: development
+    environment: terraform_plan_stage
       
     steps:
       - name: Checkout
