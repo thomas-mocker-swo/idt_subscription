@@ -3,7 +3,8 @@
 name: 'Terraform Plan on Push'
 
 on:
-  push  
+  push:
+  workflow_dispatch:
 # Special permissions required for OIDC authentication
 permissions:
   id-token: write
