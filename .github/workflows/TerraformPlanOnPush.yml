@@ -3,8 +3,9 @@
 name: 'Terraform Plan on Push'
 
 on:
-  push:
-  workflow_dispatch:
+  push:         # Triggert bei jedem Push, egal auf welchen Branch
+  workflow_dispatch:  # Ermöglicht manuelles Ausführen
+  
 # Special permissions required for OIDC authentication
 permissions:
   id-token: write
