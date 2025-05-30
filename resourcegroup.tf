@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "identity" {
 }
 
 resource "azurerm_resource_group" "tmocker" {
-  name     = module.naming.resource_names["tmocker"].resource_group
+  name     = module.naming.resource_names["tmocker_new"].resource_group
   location = var.location
   tags     = var.tags
 }
