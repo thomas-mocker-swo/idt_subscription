@@ -3,11 +3,9 @@
 name: 'Terraform Deploy on Pull Request'
 
 on:
-  pull_request:
+  push:
     branches:
     - main
-    types:
-    - closed
   
 # Special permissions required for OIDC authentication
 permissions:
