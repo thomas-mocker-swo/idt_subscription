@@ -23,7 +23,9 @@ env:
 jobs:
   terraform-plan:
     name: Terraform Plan
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    container:
+      image: ubuntu:latest
     outputs:
       plan_file: ${{ steps.setplan.outputs.plan_file }}
     steps:
