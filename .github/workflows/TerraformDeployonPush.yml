@@ -1,4 +1,4 @@
-# File: .github/workflows/TerraformDeployActionsadsf.yml
+# File: .github/workflows/TerraformDeployAction.yml
 
 name: 'Terraform Deploy on Pull Request'
 
@@ -24,8 +24,6 @@ jobs:
   terraform-plan:
     name: Terraform Plan
     runs-on: self-hosted
-    container:
-      image: ubuntu:latest
     outputs:
       plan_file: ${{ steps.setplan.outputs.plan_file }}
     steps:
