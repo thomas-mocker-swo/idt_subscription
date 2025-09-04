@@ -19,19 +19,3 @@ provider "azurerm" {
   }
   use_oidc = true
 }
-
-provider "azurerm" {
-  alias           = "identity"
-  subscription_id = var.identity_subscription_id
-  tenant_id       = var.tenant_id
-  features {}
-  use_oidc = true
-}
-
-provider "azurerm" {
-  alias           = "management"
-  subscription_id = var.management_subscription_id
-  tenant_id       = var.tenant_id
-  features {}
-  use_oidc = true
-}
