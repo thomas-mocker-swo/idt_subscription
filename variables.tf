@@ -14,19 +14,9 @@ variable "tenant_id" {
   nullable    = false
 }
 
-variable "connectivity_subscription_id" {
+variable "subscription_id" {
   type        = string
   description = "The subscription ID of the connectivity subscription."
-}
-
-variable "identity_subscription_id" {
-  type        = string
-  description = "The subscription ID of the Azure AD tenant."
-}
-
-variable "management_subscription_id" {
-  type        = string
-  description = "The subscription ID of the management subscription."
 }
 
 variable "tags" {
