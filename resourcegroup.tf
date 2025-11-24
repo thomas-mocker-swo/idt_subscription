@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "identity" {
-  name     = "${var.location_short}-identity2-rg"
+  name     = "${var.location_short}-vetmed-rg"
   location = var.location
   tags     = var.tags
 }
