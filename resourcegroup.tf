@@ -4,6 +4,13 @@ resource "azurerm_resource_group" "demo" {
   tags     = var.tags
 }
 
+resource "azurerm_resource_group" "demo_sqr" {
+  name     = "${var.location_short}-sar-rg"
+  location = var.location
+  tags     = var.tags
+}
+
+
 
 
 
